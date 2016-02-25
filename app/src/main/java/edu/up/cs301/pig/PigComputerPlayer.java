@@ -31,20 +31,20 @@ public class PigComputerPlayer extends GameComputerPlayer {
     protected void receiveInfo(GameInfo info) {
         // TODO  You will implement this method
         PigGameState theGame;
-        if(info instanceof GameState){
-            theGame = (PigGameState) info;
-        } else {
-            return;
+            if(info instanceof GameState){
+                theGame = (PigGameState) info;
+            } else {
+                return;
         }
 
-        int compId;
-        if (this.name == this.allPlayerNames[0]) {
-            compId = 0;
-        }
-        else {
-            compId = 1;
-        }
-        if(theGame.getCurrID() == compId) {
+//        int compId;
+//        if (this.name == this.allPlayerNames[0]) {
+//            compId = 0;
+//        }
+//        else {
+//            compId = 1;
+//        }
+        if(theGame.getCurrID() == playerNum) {
             if (Math.random() < 0.5) {
                 PigRollAction action = new PigRollAction(this);
                 game.sendAction(action);

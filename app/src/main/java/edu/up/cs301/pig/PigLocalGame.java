@@ -48,7 +48,7 @@ public class PigLocalGame extends LocalGame {
         //TODO  You will implement this method
         if(action instanceof PigRollAction){
             Random rand = new Random();
-            game.setCurrDieValue(1+rand.nextInt(5));
+            game.setCurrDieValue(1+rand.nextInt(6));
             if(game.getCurrDieValue() > 1){
                 game.setCurrPlayerRunningScore(game.getCurrPlayerRunningScore() + game.getCurrDieValue());
             } else {
