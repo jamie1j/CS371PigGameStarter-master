@@ -49,6 +49,7 @@ public class PigLocalGame extends LocalGame {
         if(action instanceof PigRollAction){
             Random rand = new Random();
             game.setCurrDieValue(1+rand.nextInt(6));
+            Log.i("", "" + game.getCurrDieValue());
             if(game.getCurrDieValue() > 1){
                 game.setCurrPlayerRunningScore(game.getCurrPlayerRunningScore() + game.getCurrDieValue());
             } else {

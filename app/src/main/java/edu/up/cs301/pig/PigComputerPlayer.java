@@ -1,5 +1,7 @@
 package edu.up.cs301.pig;
 
+import android.util.Log;
+
 import edu.up.cs301.game.GameComputerPlayer;
 import edu.up.cs301.game.actionMsg.GameAction;
 import edu.up.cs301.game.infoMsg.GameInfo;
@@ -45,14 +47,58 @@ public class PigComputerPlayer extends GameComputerPlayer {
 //            compId = 1;
 //        }
         if(theGame.getCurrID() == playerNum) {
-            if (Math.random() < 0.5) {
+//            if(theGame.getCurrPlayerRunningScore() < 10){
+//                PigRollAction action = new PigRollAction(this);
+//                game.sendAction(action);
+//                return;
+//            }
+//            int diff = Math.abs(theGame.getPlayer0Score() - theGame.getPlayer1Score());
+//            Log.i("test"+diff,"");
+//            if(diff>=10 && diff<20){
+//                if(theGame.getPlayer0Score()>theGame.getPlayer1Score() && playerNum == 1){
+//                    if(theGame.getCurrPlayerRunningScore() < 15){
+//                        PigRollAction action = new PigRollAction(this);
+//                        game.sendAction(action);
+//                        return;
+//                    }
+//                }
+//                if(theGame.getPlayer0Score()<theGame.getPlayer1Score() && playerNum == 0){
+//                    if(theGame.getCurrPlayerRunningScore() < 15){
+//                        PigRollAction action = new PigRollAction(this);
+//                        game.sendAction(action);
+//                        return;
+//                    }
+//                }
+//            }
+
+
+//            if(theGame.getCurrPlayerRunningScore() < 10){
+//                Log.i("test", theGame.getCurrPlayerRunningScore()+"");
+//                PigRollAction action = new PigRollAction(this);
+//                game.sendAction(action);
+//                return;
+//            }
+//
+//            PigHoldAction action = new PigHoldAction(this);
+//            game.sendAction(action);
+//            return;
+
+            boolean roll = false;
+
+            if(theGame.getCurrPlayerRunningScore() < 5){
+                roll = true;
+            } else {
+                roll = false;
+            }
+Log.i("test", theGame.getCurrPlayerRunningScore()+"");
+            if(roll){
                 PigRollAction action = new PigRollAction(this);
                 game.sendAction(action);
-            }
-            else {
+            } else {
                 PigHoldAction action = new PigHoldAction(this);
                 game.sendAction(action);
             }
+
         }
         else {
             return;
